@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://jsonplaceholder.typicode.com/users')
+    fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(users => this.setState({ monsters: users }))
   }
@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Monsters Rolodex</h1>
+        <h1 id="title">Monsters Rolodex</h1>
         <SearchBox placeholder='search for monsters' handleChange={this.handleChange}/>
         <CardList monsters={this.state.monsters.filter(monster => monster.name.toLowerCase().includes(this.state.searchField.toLowerCase()))} />
       </div>
